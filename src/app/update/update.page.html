@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title class="ion-text-center">🛠️ Update or Delete</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="showHelp()">
+        <ion-icon name="help-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="background-color: #f4f6f9;">
+  <ion-item class="custom-search">
+    <ion-label position="floating">🔍 Enter name to search</ion-label>
+    <ion-input [(ngModel)]="searchName" (ionChange)="searchItem()"></ion-input>
+  </ion-item>
+
+  <ion-text color="danger" *ngIf="searchName && !item">
+    <p class="ion-padding-start">⚠️ Item not found, please check if the name is correct</p>
+  </ion-text>
+
+  <ion-card *ngIf="item" class="custom-card">
+    <ion-card-header>
+      <ion-card-title>📋 Edit Inventory Item</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item class="custom-input">
+        <ion-label position="floating">ID</ion-label>
+        <ion-input type="number" [(ngModel)]="item.item_id" readonly></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="item.item_name"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="floating">Quantity</ion-label>
+        <ion-input type="number" [(ngModel)]="item.quantity"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="floating">Category</ion-label>
+        <ion-input [(ngModel)]="item.category"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="floating">Price</ion-label>
+        <ion-input type="number" [(ngModel)]="item.price"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="floating">Supplier Name</ion-label>
+        <ion-input [(ngModel)]="item.supplier_name"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="floating">Stock Status</ion-label>
+        <ion-input [(ngModel)]="item.stock_status"></ion-input>
+      </ion-item>
+
+      <ion-item class="checkbox-row" lines="none">
+        <ion-label>Is Featured</ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="item.featured_item" [checked]="item.featured_item === 1"
+          (ionChange)="item.featured_item = $event.detail.checked ? 1 : 0"></ion-checkbox>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="floating">Notes</ion-label>
+        <ion-textarea [(ngModel)]="item.special_note"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" class="ion-margin-top" (click)="updateItem()">
+        ✅ Update Item
+      </ion-button>
+      <ion-button expand="block" color="danger" (click)="deleteItem()">
+        🗑️ Delete Item
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<style>
+  .custom-search {
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .custom-card {
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+  }
+
+  .custom-card ion-card-header {
+    background-color: #e0f7fa;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .custom-card ion-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007aff;
+    text-align: center;
+  }
+
+  .custom-input {
+    margin-bottom: 8px;
+  }
+
+  .checkbox-row {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  ion-button {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+</style>

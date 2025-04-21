@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Inventory Management System</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="height: 100vh; display: flex; flex-direction: column;">
+  <ion-grid class="ion-no-padding" style="flex: 1;">
+    <ion-row style="height: 100vh; flex: 1;">
+      <!-- Left Sidebar Navigation -->
+      <ion-col size="12" size-md="3" style="height: 100vh; overflow-y: auto;">
+        <ion-card routerLink="/home" class="custom-card">
+          <ion-card-header>
+            <ion-icon name="archive" slot="start" color="primary" class="custom-icon"></ion-icon>
+            <ion-card-title>📦 All Inventory</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-card routerLink="/add" class="custom-card">
+          <ion-card-header>
+            <ion-icon name="add-circle" slot="start" color="secondary" class="custom-icon"></ion-icon>
+            <ion-card-title>➕ Add Record</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-card routerLink="/update" class="custom-card">
+          <ion-card-header>
+            <ion-icon name="create" slot="start" color="tertiary" class="custom-icon"></ion-icon>
+            <ion-card-title>✏️ Update or Delete Record</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-card routerLink="/privacy" class="custom-card">
+          <ion-card-header>
+            <ion-icon name="shield-checkmark" slot="start" color="danger" class="custom-icon"></ion-icon>
+            <ion-card-title>🔒 Privacy & Security</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="9" style="height: 90vh;">
+        <ion-router-outlet></ion-router-outlet>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+
+<style>
+  .custom-card {
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .custom-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .custom-icon {
+    font-size: 28px;
+    margin-right: 10px;
+  }
+
+  ion-card-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  ion-card-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  ion-card {
+    background-color: #ffffff;
+  }
+
+  ion-card-header:hover {
+    background-color: #f4f4f4;
+  }
+</style>
