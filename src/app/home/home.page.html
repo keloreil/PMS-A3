@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title class="ion-text-center">📦 Inventory List</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="showHelp()">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="background-color: #f5f7fa;">
+  <ion-searchbar [(ngModel)]="searchName" (ionChange)="search()" placeholder="Search item name..." animated
+    color="light" class="custom-search"></ion-searchbar>
+
+  <ion-list class="styled-list">
+    <ion-item *ngFor="let item of items" class="custom-card">
+      <ion-avatar slot="start">
+        <ion-icon name="cube" style="font-size: 28px; color: #3dc2ff;"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2 class="item-title">{{ item.item_name }}</h2>
+        <p><strong>ID:</strong> {{ item.item_id }} | <strong>Quantity:</strong> {{ item.quantity }}</p>
+        <p><strong>Category:</strong> {{ item.category }} | <strong>Supplier:</strong> {{ item.supplier_name }}</p>
+        <p><strong>Stock Status:</strong> <span [ngClass]="getStockColor(item.stock_status)">
+            {{ item.stock_status }}
+          </span></p>
+        <p><strong>Price:</strong> <span class="price">¥{{ item.price }}</span></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<style>
+  ion-title {
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  .custom-search {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .styled-list {
+    border-radius: 8px;
+  }
+
+  .custom-card {
+    margin: 10px 0;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+  }
+
+  .custom-card:hover {
+    transform: scale(1.01);
+  }
+
+  .item-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+  }
+
+  .price {
+    color: #e91e63;
+    font-weight: bold;
+  }
+
+  .stock-green {
+    color: #2dd36f;
+    font-weight: bold;
+  }
+
+  .stock-yellow {
+    color: #ffc409;
+    font-weight: bold;
+  }
+
+  .stock-red {
+    color: #eb445a;
+    font-weight: bold;
+  }
+</style>
