@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Data Protection & Security</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="showHelp()">🔍</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="background-color: #f4f7f6;">
+  <ion-card class="privacy-card">
+    <ion-card-header>
+      <ion-card-title>Our Security Commitment</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      We provide comprehensive data protection to ensure your information is secure within this system. Here are the key
+      measures we take to protect data privacy:
+      <ul>
+        <li>🔐 All user data is transmitted through encrypted communication protocols to ensure security.</li>
+        <li>🛡️ The system uses a highly secure database with strictly controlled access—only authorized users can view
+          or modify the data.</li>
+        <li>📦 Only essential information related to inventory management is collected, such as item name, quantity, and
+          price.</li>
+        <li>⚠️ Important data is protected to prevent accidental deletion or leakage.</li>
+        <li>🚫 Users are prohibited from entering any sensitive personal information (e.g., ID numbers, bank card
+          numbers).</li>
+        <li>📋 Every data modification is automatically logged for future tracking and auditing.</li>
+      </ul>
+
+      When using the system, we expect users to follow these security guidelines:
+      <ul>
+        <li>🔑 Keep your account and password safe, and do not share them with unauthorized individuals.</li>
+        <li>💡 Do not attempt to bypass system security measures.</li>
+        <li>⚠️ If you notice any suspicious activity, please contact the system administrator immediately.</li>
+      </ul>
+
+      <p>📞 Contact us: support.com</p>
+      <p>📅 Last Updated: April 18, 2025</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<style>
+  .privacy-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    margin: 15px 0;
+    padding: 15px;
+  }
+
+  ion-card-header {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  ion-card-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  ul {
+    margin: 15px 0;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul li {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  ion-button {
+    background-color: #4caf50;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+  ion-button:hover {
+    background-color: #45a049;
+  }
+
+  ion-content {
+    padding: 15px;
+  }
+
+  ion-card-content p {
+    font-size: 14px;
+    color: #777;
+  }
+</style>
